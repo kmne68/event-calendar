@@ -16,20 +16,20 @@ namespace EventCalendar.Models
 
         [Required]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime Date { get; set; }
 
         [Required]
         [DataType(DataType.Time)]
         [Display(Name = "Start Time")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:HH:mm}")]
-        public string StartTime { get; set; }
+        public DateTime StartTime { get; set; }
 
         [Required]
         [DataType(DataType.Time)]
         [Display(Name = "End Time")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:HH:mm}")]
-        public string EndTime { get; set; }
+        public DateTime EndTime { get; set; }
 
 
         [Display(Name = "URL")]
