@@ -13,7 +13,5 @@ namespace EventCalendar.Models
             : base("DefaultConnection")
         {
         }
-
-        public System.Data.Entity.DbSet<EventCalendar.Models.Events> Events { get; set; }
     }
 }

@@ -47,7 +47,7 @@ namespace EventCalendar.Controllers
 
             Events newEvent = new Events{
                 Id = 1,
-                Title = "Event 771",
+                EventTitle = "Event 771",
                 StartTime = DateTime.Now.AddDays(1).ToString("s"),
                 EndTime = DateTime.Now.AddDays(1).ToString("s"),
                 allDay = false
@@ -59,7 +59,7 @@ namespace EventCalendar.Controllers
             newEvent = new Events
             {
                 Id = 1,
-                Title = "Event 3",
+                EventTitle = "Event 3",
                 StartTime = DateTime.Now.AddDays(2).ToString("s"),
                 EndTime = DateTime.Now.AddDays(3).ToString("s"),
                 allDay = false

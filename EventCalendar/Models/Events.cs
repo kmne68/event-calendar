@@ -9,20 +9,26 @@ namespace EventCalendar.Models
     public class Events
     {
         public int Id { get; set; }
-        public string Title { get; set; }
 
-    //    [Required]
-    //    [DataType(DataType.Date)]
+        [Required]
+        [Display(Name = "Event Name")]
+        public string EventTitle { get; set; }
+
+        [Required]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime Date { get; set; }
 
-   //     [Required]
-   //     [DataType(DataType.Time)]
+        [Required]
+        [DataType(DataType.Time)]
         [Display(Name = "Start Time")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:HH:mm}")]
         public string StartTime { get; set; }
 
-  //      [Required]
-  //      [DataType(DataType.Time)]
+        [Required]
+        [DataType(DataType.Time)]
         [Display(Name = "End Time")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:HH:mm}")]
         public string EndTime { get; set; }
 
 
@@ -31,5 +37,9 @@ namespace EventCalendar.Models
 
 
         public bool? allDay { get; set; }
+
+        [Display(Name = "Special Instructions")]
+        [DataType(DataType.MultilineText)]
+        public string SpecialIntructions { get; set; }
     }
 }
