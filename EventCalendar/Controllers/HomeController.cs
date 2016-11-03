@@ -45,12 +45,15 @@ namespace EventCalendar.Controllers
         {
             List<Events> eventList = new List<Events>();
 
-            Events newEvent = new Events{
+            Events newEvent = new Events {
                 Id = 1,
                 EventTitle = "Event 771",
                 //StartTime = DateTime.Now.AddDays(1).ToString("s"),
-               // EndTime = DateTime.Now.AddDays(1).ToString("s"),
-                allDay = false
+                StartTime = DateTime.Now.AddDays(1),
+                //EndTime = DateTime.Now.AddDays(1).ToString("s"),
+                EndTime = DateTime.Now.AddDays(1),
+                allDay = false,
+                SpecialIntructions = "Reserve me a date"
             };
 
 
@@ -60,9 +63,10 @@ namespace EventCalendar.Controllers
             {
                 Id = 1,
                 EventTitle = "Event 3",
-                //StartTime = DateTime.Now.AddDays(2).ToString("s"),
-                //EndTime = DateTime.Now.AddDays(3).ToString("s"),
-                allDay = false
+                StartTime = DateTime.Now.AddDays(2),
+                EndTime = DateTime.Now.AddDays(3),
+                allDay = false,
+                SpecialIntructions = "Make the event awesome!"
             };
 
             eventList.Add(newEvent);
