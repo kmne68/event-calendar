@@ -10,8 +10,10 @@ namespace EventCalendar.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection")
+            : base("DefaultConnection", throwIfV1Schema: false)  // add throwIfV1Schema to fix database update error
         {
         }
+
+        public System.Data.Entity.DbSet<EventCalendar.Models.Events> Events { get; set; }
     }
 }
