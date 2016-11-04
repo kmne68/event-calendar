@@ -19,13 +19,14 @@ namespace EventCalendar.Migrations
             var events = new List<Events>
             {
                 new Events { EventTitle = "Keith's Bday",
-                    Date = DateTime.ParseExact("11/10/2016", "0:dd/MM/yyyy", null),
-                    StartTime = DateTime.ParseExact("1:30:00", "0:HH:mm", null),
-                    EndTime = DateTime.ParseExact("2:30:00", "0:HH:mm", null) },
+                    EventDate = DateTime.Parse("2016-11-09"),
+                    StartTime = DateTime.ParseExact("01:30:01 PM", "hh:mm:ss tt", null),
+                    EndTime = DateTime.ParseExact("02:30:00 PM", "hh:mm:ss tt", null) 
+                },
                 new Events { EventTitle = "Joe's Graduation",
-                    Date = DateTime.ParseExact("11/12/2016", "0:dd/MM/yyyy", null),
-                    StartTime = DateTime.ParseExact("2:30:00", "0:HH:mm", null),
-                    EndTime = DateTime.ParseExact("3:30:00", "0:HH:mm", null)
+                    EventDate = DateTime.Parse("2016-11-10"),
+                    StartTime = DateTime.ParseExact("02:30:00 PM", "hh:mm:ss tt", null),
+                    EndTime = DateTime.ParseExact("03:30:00 PM", "hh:mm:ss tt", null)
                 }
             };
 
