@@ -15,28 +15,26 @@ namespace EventCalendar.Models
         public string EventTitle { get; set; }
 
         [Required]
-        [DataType(DataType.Date)]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
-        public DateTime Date { get; set; }
+        [Display(Name = "Event Date"), DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
+        public DateTime EventDate { get; set; }
 
         [Required]
         [DataType(DataType.Time)]
         [Display(Name = "Start Time")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:HH:mm}")]
-        public DateTime StartTime { get; set; }
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:hh:mm:ss tt}")]
+        public DateTime? StartTime { get; set; }
 
         [Required]
         [DataType(DataType.Time)]
         [Display(Name = "End Time")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:HH:mm}")]
-        public DateTime EndTime { get; set; }
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:hh:mm:ss tt}")]
+        public DateTime? EndTime { get; set; }
 
+        public string URL { get; set; }
 
-        [Display(Name = "URL")]
-        public string Url { get; set; }
-
-
-        public bool? allDay { get; set; }
+        [Display(Name = "All-Day Event?")]
+        public bool? IsAllDay { get; set; }
 
         [Display(Name = "Special Instructions")]
         [DataType(DataType.MultilineText)]
