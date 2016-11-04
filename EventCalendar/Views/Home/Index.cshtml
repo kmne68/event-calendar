@@ -3,28 +3,6 @@
 }
 
 <div class="jumbotron">
-    <h1>Event Calendar</h1>
-    <div id="calendar"></div>
+    <h1>IS 290 Event Scheduler</h1>
 </div>
 
-@section scripts{
-
-    <script type="text/javascript">
-
-
-        $(document).ready(function () {
-            $('#calendar').fullCalendar({
-                header:{left:'prev, next, today',
-                    center: 'title',
-                    right: 'month, agendaWeek, agendaDay' },
-                theme: true,
-
-                //defaultView: 'agendaDay',
-                editable: true,
-                events: "/home/getevents/"
-            });
-        });
-
-    
-</script>
-    }
