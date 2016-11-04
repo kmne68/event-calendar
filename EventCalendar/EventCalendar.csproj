@@ -180,7 +180,6 @@
       <Private>True</Private>
     </Reference>
   </ItemGroup>
-
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\CalendarEvent.cs" />
@@ -399,6 +398,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
+    <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
     <Content Include="Views\Events\Create.cshtml" />
     <Content Include="Views\Events\Delete.cshtml" />
     <Content Include="Views\Events\Details.cshtml" />

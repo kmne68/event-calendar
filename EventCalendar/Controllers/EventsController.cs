@@ -46,7 +46,7 @@ namespace EventCalendar.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,EventTitle,Date,StartTime,EndTime,Url,allDay,SpecialIntructions")] Events events)
+        public ActionResult Create([Bind(Include = "Id,EventTitle,EventDate,StartTime,EndTime,URL,IsAllDay,SpecialIntructions")] Events events)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace EventCalendar.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,EventTitle,Date,StartTime,EndTime,Url,allDay,SpecialIntructions")] Events events)
+        public ActionResult Edit([Bind(Include = "Id,EventTitle,EventDate,StartTime,EndTime,URL,IsAllDay,SpecialIntructions")] Events events)
         {
             if (ModelState.IsValid)
             {

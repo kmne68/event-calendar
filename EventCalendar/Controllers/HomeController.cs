@@ -52,7 +52,7 @@ namespace EventCalendar.Controllers
                 StartTime = DateTime.Now.AddDays(1),
                 //EndTime = DateTime.Now.AddDays(1).ToString("s"),
                 EndTime = DateTime.Now.AddDays(1),
-                allDay = false,
+                IsAllDay = false,
                 SpecialIntructions = "Reserve me a date"
             };
 
@@ -65,7 +65,7 @@ namespace EventCalendar.Controllers
                 EventTitle = "Event 3",
                 StartTime = DateTime.Now.AddDays(2),
                 EndTime = DateTime.Now.AddDays(3),
-                allDay = false,
+                IsAllDay = false,
                 SpecialIntructions = "Make the event awesome!"
             };
 
