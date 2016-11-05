@@ -2,7 +2,88 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>IS 290 Event Scheduler</h1>
+<div id="banner">
+</div>
+
+<div>
+    <br />
+    <h2 class="text-center text-warning">Let us bring life to your special events!</h2>
+    <br />
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-sm-4">
+                <h4 class="text-warning text-center">
+                    <span class="fa-stack fa-5x">
+                        <i class="fa fa-circle-thin fa-stack-2x fa-1x"></i>
+                        <i class="fa fa-circle-o fa-stack-1x fa-2x text-hide"></i>
+                        <i class="fa fa-object-group fa-stack-1x fa-1x"></i>
+                    </span>
+                </h4>
+                <div class="text-center">
+                    <br />
+                    <h4>
+                        @Html.ActionLink("Check our events gallery", "About", "Home", new { @class = "text-warning" })
+                    </h4>
+                    <br />
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <h4 class="text-warning text-center">
+                    <span class="fa-stack fa-5x">
+                        <i class="fa fa-circle-thin fa-stack-2x fa-1x"></i>
+                        <i class="fa fa-circle-o fa-stack-1x fa-2x text-hide"></i>
+                        <i class="fa fa-calendar fa-stack-1x fa-1x"></i>
+                    </span>
+                </h4>
+                <div class="text-center">
+                    <br />
+                    <h4>
+                        @Html.ActionLink("View our calendar", "Calendar", "Events", null, new { @class = "text-warning" })
+                    </h4>
+                    <br />
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <h4 class="text-warning text-center">
+                    <span class="fa-stack fa-5x">
+                        <i class="fa fa-circle-thin fa-stack-2x fa-1x"></i>
+                        <i class="fa fa-circle-o fa-stack-1x fa-2x text-hide"></i>
+                        <i class="fa fa-file-text fa-stack-1x fa-1x"></i>
+                    </span>
+                </h4>
+                <div class="text-center">
+                    <br />
+                    <h4>
+                        @Html.ActionLink("Book and event", "Create", "Events", null, new { @class = "text-warning" })
+                    </h4>
+                    <br />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <h2 class="text-center text-warning">What our customer's say</h2>
+    <div class="col-sm-6">
+        <h4>
+            <i class="fa fa-quote-left fa-3x"></i>
+            Bacon ipsum dolor amet beef cupim salami, leberkas filet mignon pork
+            hamburger drumstick. Flank kevin pig beef bacon pork belly hamburger
+            cupim prosciutto turducken capicola meatball ribeye pork.
+        </h4>
+        <br />
+        <h5 class=text-right>Customer Bacon</h5>
+    </div>
+    <div class="col-sm-6">
+        <h4>
+            <i class="fa fa-quote-left fa-3x"></i>
+            Bacon ipsum dolor amet beef cupim salami, leberkas filet mignon pork
+            hamburger drumstick. Flank kevin pig beef bacon pork belly hamburger
+            cupim prosciutto turducken capicola meatball ribeye pork.
+        </h4>
+        <br />
+        <h5 class=text-right>Customer Salami</h5>
+    </div>
 </div>
 
