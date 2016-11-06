@@ -38,6 +38,9 @@ namespace EventCalendar
                       "~/Scripts/moment.min.js",
                       "~/Scripts/fullcalendar.min.js"));
 
+            // Custom js 
+            bundles.Add(new ScriptBundle("~/bundles/customjs").Include(
+                    "~/Scripts/site.js"));
         }
     }
 }
