@@ -38,6 +38,7 @@ namespace EventCalendar.Controllers
         // GET: Events/Create
         public ActionResult Create()
         {
+            ViewBag.CurrentDate = DateTime.Now.Date.ToShortDateString();
             return View();
         }
 
