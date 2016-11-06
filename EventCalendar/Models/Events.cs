@@ -23,13 +23,13 @@ namespace EventCalendar.Models
         [DataType(DataType.Time)]
         [Display(Name = "Start Time")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:hh:mm:ss tt}")]
-        public DateTime? StartTime { get; set; }
+        public DateTime StartTime { get; set; }
 
         [Required]
         [DataType(DataType.Time)]
         [Display(Name = "End Time")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:hh:mm:ss tt}")]
-        public DateTime? EndTime { get; set; }
+        public DateTime EndTime { get; set; }
 
         public string URL { get; set; }
 
