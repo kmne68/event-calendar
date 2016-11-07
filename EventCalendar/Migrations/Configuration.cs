@@ -2,38 +2,37 @@ namespace EventCalendar.Migrations
 {
     using Models;
     using System;
+    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<EventCalendar.Models.ApplicationDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<ApplicationDbContext>
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
-            ContextKey = "EventCalendar.Models.ApplicationDbContext";
+            AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(EventCalendar.Models.ApplicationDbContext context)
+        protected override void Seed(ApplicationDbContext context)
         {
-            //  This method will be called after migrating to the latest version.
+            var events = new List<Events>
+            {
+                new Events { EventTitle = "Keith's Bday",
+                    EventDate = DateTime.Parse("2016-11-09"),
+                    StartTime = DateTime.ParseExact("01:30:01 PM", "hh:mm:ss tt", null),
+                    EndTime = DateTime.ParseExact("02:30:00 PM", "hh:mm:ss tt", null) 
+                },
+                new Events { EventTitle = "Joe's Graduation",
+                    EventDate = DateTime.Parse("2016-11-10"),
+                    StartTime = DateTime.ParseExact("02:30:00 PM", "hh:mm:ss tt", null),
+                    EndTime = DateTime.ParseExact("03:30:00 PM", "hh:mm:ss tt", null)
+                }
+            };
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
-            context.Events.AddOrUpdate(
-                new Events { Title = "Test1" },
-                new Events { Title = "Test2" },
-                new Events { Title = "Test3" },
-                new Events { Title = "Test4" } );
+            // Assumes k.EventTitles are unique | TODO Replace this before production
+            events.ForEach(e => context.Events.AddOrUpdate(k => k.EventTitle, e));
+            context.SaveChanges();
         }
-
     }
 }

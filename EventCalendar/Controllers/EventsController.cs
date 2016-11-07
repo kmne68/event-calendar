@@ -38,6 +38,7 @@ namespace EventCalendar.Controllers
         // GET: Events/Create
         public ActionResult Create()
         {
+            ViewBag.CurrentDate = DateTime.Now.Date.ToShortDateString();
             return View();
         }
 
@@ -46,7 +47,7 @@ namespace EventCalendar.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Title,Date,StartTime,EndTime,Url,allDay")] Events events)
+        public ActionResult Create([Bind(Include = "Id,EventTitle,EventDate,StartTime,EndTime,URL,IsAllDay,SpecialIntructions")] Events events)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +79,7 @@ namespace EventCalendar.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,Date,StartTime,EndTime,Url,allDay")] Events events)
+        public ActionResult Edit([Bind(Include = "Id,EventTitle,EventDate,StartTime,EndTime,URL,IsAllDay,SpecialIntructions")] Events events)
         {
             if (ModelState.IsValid)
             {
@@ -113,6 +114,11 @@ namespace EventCalendar.Controllers
             db.Events.Remove(events);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult Calendar()
+        {
+            return View();
         }
 
         protected override void Dispose(bool disposing)

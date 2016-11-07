@@ -2,29 +2,94 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>Event Calendar</h1>
-    <div id="calendar"></div>
+<div id="banner">
 </div>
 
-@section scripts{
+<div>
+    <br />
+    <br />
+    <h2 class="text-center text-primary">Let us bring life to your special events!</h2>
+    <br />
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-sm-4">
+                <h4 class="text-warning text-center">
+                    <span class="fa-stack fa-5x">
+                        <i class="fa fa-circle-thin fa-stack-2x fa-1x"></i>
+                        <i class="fa fa-circle-o fa-stack-1x fa-2x text-hide"></i>
+                        <i class="fa fa-object-group fa-stack-1x fa-1x"></i>
+                    </span>
+                </h4>
+                <div class="text-center">
+                    <br />
+                    <h4>
+                        @Html.ActionLink("Check our events gallery", "About", "Home", new { @class = "text-info" })
+                        <i class="fa fa-angle-double-right text-info"></i>
+                    </h4>
+                    <br />
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <h4 class="text-warning text-center">
+                    <span class="fa-stack fa-5x">
+                        <i class="fa fa-circle-thin fa-stack-2x fa-1x"></i>
+                        <i class="fa fa-circle-o fa-stack-1x fa-2x text-hide"></i>
+                        <i class="fa fa-calendar fa-stack-1x fa-1x"></i>
+                    </span>
+                </h4>
+                <div class="text-center">
+                    <br />
+                    <h4>
+                        @Html.ActionLink("View our calendar", "Calendar", "Events", null, new { @class = "text-info" })
+                        <i class="fa fa-angle-double-right text-info"></i>
+                    </h4>
+                    <br />
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <h4 class="text-warning text-center">
+                    <span class="fa-stack fa-5x">
+                        <i class="fa fa-circle-thin fa-stack-2x fa-1x"></i>
+                        <i class="fa fa-circle-o fa-stack-1x fa-2x text-hide"></i>
+                        <i class="fa fa-file-text fa-stack-1x fa-1x"></i>
+                    </span>
+                </h4>
+                <div class="text-center">
+                    <br />
+                    <h4>
+                        @Html.ActionLink("Book your event", "Create", "Events", null, new { @class = "text-info" })
+                        <i class="fa fa-angle-double-right text-info"></i>
+                    </h4>
+                    <br />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-    <script type="text/javascript">
+<div class="row">
+    <br />
+    <br />
+    <h2 class="text-center text-primary">What our customer's say</h2>
+    <div class="col-sm-6">
+        <h4>
+            <i class="fa fa-quote-left fa-3x text-warning"></i>
+            Bacon ipsum dolor amet beef cupim salami, leberkas filet mignon pork
+            hamburger drumstick. Flank kevin pig beef bacon pork belly hamburger
+            cupim prosciutto turducken capicola meatball ribeye pork.
+        </h4>
+        <br />
+        <h5 class=text-right>Customer Bacon</h5>
+    </div>
+    <div class="col-sm-6">
+        <h4>
+            <i class="fa fa-quote-left fa-3x text-warning"></i>
+            Bacon ipsum dolor amet beef cupim salami, leberkas filet mignon pork
+            hamburger drumstick. Flank kevin pig beef bacon pork belly hamburger
+            cupim prosciutto turducken capicola meatball ribeye pork.
+        </h4>
+        <br />
+        <h5 class=text-right>Customer Salami</h5>
+    </div>
+</div>
 
-
-        $(document).ready(function () {
-            $('#calendar').fullCalendar({
-                header:{left:'prev, next, today',
-                    center: 'title',
-                    right: 'month, agendaWeek, agendaDay' },
-                theme: true,
-
-                //defaultView: 'agendaDay',
-                editable: true,
-                events: "/home/getevents/"
-            });
-        });
-
-    
-</script>
-    }

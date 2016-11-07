@@ -27,18 +27,20 @@ namespace EventCalendar
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
 
+            // Calendar css file
+            bundles.Add(new StyleBundle("~/Content/fullCalendarcss").Include(
+                      "~/Content/themes/base/jquery-ui.min.css",
+                      "~/Content/fullcalendar.min.css"));
 
-            //Calendar css file
-            bundles.Add(new StyleBundle("~/Content/fullcalendarcss").Include(
-                     "~/Content/themes/jquery.ui.all.css",
-                     "~/Content/fullcalendar.css"));
-
-            //Calendar Script file
-
-            bundles.Add(new ScriptBundle("~/bundles/fullcalendarjs").Include(
-                      "~/Scripts/jquery-ui-1.10.4.min.js",
+            // Calendar script file
+            bundles.Add(new ScriptBundle("~/bundles/fullCalendarjs").Include(
+                      "~/Scripts/jquery-ui-1.12.1.min.js",
+                      "~/Scripts/moment.min.js",
                       "~/Scripts/fullcalendar.min.js"));
 
+            // Custom js 
+            bundles.Add(new ScriptBundle("~/bundles/customjs").Include(
+                    "~/Scripts/site.js"));
         }
     }
 }
