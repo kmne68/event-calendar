@@ -41,11 +41,11 @@ namespace EventCalendar.Controllers
             return Json(rows, JsonRequestBehavior.AllowGet);
         }
 
-        private List<Events> GetEvents()
+        private List<Event> GetEvents()
         {
-            List<Events> eventList = new List<Events>();
+            List<Event> eventList = new List<Event>();
 
-            Events newEvent = new Events {
+            Event newEvent = new Event {
                 Id = 1,
                 EventTitle = "Event 771",
                 //StartTime = DateTime.Now.AddDays(1).ToString("s"),
@@ -59,7 +59,7 @@ namespace EventCalendar.Controllers
 
             eventList.Add(newEvent);
 
-            newEvent = new Events
+            newEvent = new Event
             {
                 Id = 1,
                 EventTitle = "Event 3",

@@ -7,22 +7,22 @@ namespace EventCalendar.Migrations
     {
         public override void Up()
         {
-            AddColumn("dbo.Events", "EventType", c => c.Int(nullable: false));
-            AddColumn("dbo.Events", "StreetNumber", c => c.String(nullable: false, maxLength: 50));
-            AddColumn("dbo.Events", "StreetName", c => c.String(maxLength: 50));
-            AddColumn("dbo.Events", "City", c => c.String(nullable: false, maxLength: 30));
-            AddColumn("dbo.Events", "State", c => c.String(nullable: false, maxLength: 30));
-            AddColumn("dbo.Events", "ZipCode", c => c.String(nullable: false));
+            AddColumn("dbo.Event", "EventType", c => c.Int(nullable: false));
+            AddColumn("dbo.Event", "StreetNumber", c => c.String(nullable: false, maxLength: 50));
+            AddColumn("dbo.Event", "StreetName", c => c.String(maxLength: 50));
+            AddColumn("dbo.Event", "City", c => c.String(nullable: false, maxLength: 30));
+            AddColumn("dbo.Event", "State", c => c.String(nullable: false, maxLength: 30));
+            AddColumn("dbo.Event", "ZipCode", c => c.String(nullable: false));
         }
         
         public override void Down()
         {
-            DropColumn("dbo.Events", "ZipCode");
-            DropColumn("dbo.Events", "State");
-            DropColumn("dbo.Events", "City");
-            DropColumn("dbo.Events", "StreetName");
-            DropColumn("dbo.Events", "StreetNumber");
-            DropColumn("dbo.Events", "EventType");
+            DropColumn("dbo.Event", "ZipCode");
+            DropColumn("dbo.Event", "State");
+            DropColumn("dbo.Event", "City");
+            DropColumn("dbo.Event", "StreetName");
+            DropColumn("dbo.Event", "StreetNumber");
+            DropColumn("dbo.Event", "EventType");
         }
     }
 }

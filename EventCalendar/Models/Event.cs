@@ -10,7 +10,7 @@ namespace EventCalendar.Models
     {
         Birthday, Wedding, Graduation, Anniversary, Others
     }
-    public class Events
+    public class Event
     {
         public int Id { get; set; }
 

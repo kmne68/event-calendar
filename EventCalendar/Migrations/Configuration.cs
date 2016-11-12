@@ -16,9 +16,9 @@ namespace EventCalendar.Migrations
 
         protected override void Seed(ApplicationDbContext context)
         {
-            var events = new List<Events>
+            var events = new List<Event>
             {
-                new Events { EventTitle = "Keith's Bday",
+                new Event { EventTitle = "Keith's Bday",
                     EventDate = DateTime.Parse("2016-11-09"),
                     StartTime = DateTime.ParseExact("01:30:01 PM", "hh:mm:ss tt", null),
                     EndTime = DateTime.ParseExact("02:30:00 PM", "hh:mm:ss tt", null),
@@ -29,7 +29,7 @@ namespace EventCalendar.Migrations
                     State = "MO",
                     ZipCode = "6313" 
                 },
-                new Events { EventTitle = "Joe's Graduation",
+                new Event { EventTitle = "Joe's Graduation",
                     EventDate = DateTime.Parse("2016-11-10"),
                     StartTime = DateTime.ParseExact("02:30:00 PM", "hh:mm:ss tt", null),
                     EndTime = DateTime.ParseExact("03:30:00 PM", "hh:mm:ss tt", null),
@@ -43,7 +43,7 @@ namespace EventCalendar.Migrations
             };
 
             // Assumes k.EventTitles are unique | TODO Replace this before production
-            events.ForEach(e => context.Events.AddOrUpdate(k => k.EventTitle, e));
+            events.ForEach(e => context.Event.AddOrUpdate(k => k.EventTitle, e));
             context.SaveChanges();
         }
     }
