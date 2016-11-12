@@ -6,6 +6,10 @@ using System.Web;
 
 namespace EventCalendar.Models
 {
+    public enum EventType
+    {
+        Birthday, Wedding, Graduation, Anniversary, Others
+    }
     public class Events
     {
         public int Id { get; set; }
@@ -31,6 +35,26 @@ namespace EventCalendar.Models
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:hh:mm:ss tt}")]
         public DateTime EndTime { get; set; }
 
+        [Display(Name = "Event Type")]
+        public EventType EventType { get; set; }
+
+        [Required]
+        [Display(Name = "Street Number"), StringLength(50)]
+        public string StreetNumber { get; set; }
+
+        [Display(Name = "Street Name"), StringLength(50)]
+        public string StreetName { get; set; }
+
+        [Required, StringLength(30)]
+        public string City { get; set; }
+
+        [Required, StringLength(30)]
+        public string State { get; set; }
+
+        [Required]
+        [DataType(DataType.PostalCode)]
+        public string ZipCode { get; set; }
+
         public string URL { get; set; }
 
         [Display(Name = "All-Day Event?")]
@@ -39,5 +63,14 @@ namespace EventCalendar.Models
         [Display(Name = "Special Instructions")]
         [DataType(DataType.MultilineText)]
         public string SpecialIntructions { get; set; }
+
+        [Display(Name = "Event Address")]
+        public string EventAddress {
+            get
+            {
+                string streetName = string.IsNullOrWhiteSpace(this.StreetName) ? "" : this.StreetName + ", ";
+                return string.Format($"{StreetNumber} {streetName} {City} {State} {ZipCode}");
+            }
+         }
     }
 }
