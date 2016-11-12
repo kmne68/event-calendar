@@ -203,6 +203,10 @@
     <Compile Include="Migrations\201611031957355_ModifyModelDataType.Designer.cs">
       <DependentUpon>201611031957355_ModifyModelDataType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611120429456_AddEventProperties.cs" />
+    <Compile Include="Migrations\201611120429456_AddEventProperties.Designer.cs">
+      <DependentUpon>201611120429456_AddEventProperties.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Events.cs" />
@@ -424,6 +428,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611031957355_ModifyModelDataType.resx">
       <DependentUpon>201611031957355_ModifyModelDataType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611120429456_AddEventProperties.resx">
+      <DependentUpon>201611120429456_AddEventProperties.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
