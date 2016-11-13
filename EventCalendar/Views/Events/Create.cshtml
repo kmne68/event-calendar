@@ -6,10 +6,10 @@
 
 <h2>Create</h2>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Events</h4>
         <hr />
@@ -25,7 +25,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.EventDate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.EventDate, new { htmlAttributes = new { @class = "form-control date-picker", placeholder=@ViewBag.CurrentDate} })
+                @Html.EditorFor(model => model.EventDate, new { htmlAttributes = new { @class = "form-control date-picker", placeholder = @ViewBag.CurrentDate } })
                 @Html.ValidationMessageFor(model => model.EventDate, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -81,7 +81,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.State, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.State, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(model => model.State, new SelectList(@ViewBag.States, "Key", "Value", "MO"), "- Select -",
+                new {@class = "form-control"})
                 @Html.ValidationMessageFor(model => model.State, "", new { @class = "text-danger" })
             </div>
         </div>

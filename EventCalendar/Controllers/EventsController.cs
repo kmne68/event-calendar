@@ -39,6 +39,7 @@ namespace EventCalendar.Controllers
         public ActionResult Create()
         {
             ViewBag.CurrentDate = DateTime.Now.Date.ToShortDateString();
+            ViewBag.States = GetStates();
             return View();
         }
 
@@ -128,6 +129,56 @@ namespace EventCalendar.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        private Dictionary<string, string> GetStates()
+        {
+            return new Dictionary<string, string>
+            {
+                {"AK", "Alaska" },
+                {"Al", "Alabama" },
+                {"AZ", "Arizona" },
+                {"AR", "Arkansas" },
+                {"CA", "California" },
+                {"CO", "Colorado" },
+                {"CT", "Connecticut" },
+                {"DE", "Delaware" },
+                {"FL", "Florida" },
+                {"GA", "Georgia" },
+                {"HI", "Hawaii" },
+                {"ID", "Idaho" },
+                {"IL", "Illinois" },
+                {"IN", "Indiana" },
+                {"IO", "Iowa" },
+                {"KS", "Kansas" },
+                {"KY", "Kentucky" },
+                {"LA", "Louisiana" },
+                {"ME", "Maine" },
+                {"MD", "Maryland" },
+                {"MA", "Massachusetts" },
+                {"MI", "Michigan" },
+                {"MN", "Minnesota" },
+                {"MS", "Mississippi" },
+                {"MO", "Missouri" },
+                {"MT", "Montana" },
+                {"NE", "Nebraska" },
+                {"NV", "Nevada" },
+                {"NH", "New Hampshire" },
+                {"NJ", "New Jersey" },
+                {"NM", "New Mexico" },
+                {"NY", "New York" },
+                {"NC", "North Carolina" },
+                {"ND", "North Dakota" },
+                {"TN", "Tennessee" },
+                {"TX", "Texas" },
+                {"UT", "Utah" },
+                {"VT", "Vermont" },
+                {"VI", "Virginia" },
+                {"WA", "Washington" },
+                {"WV", "West Virginia" },
+                {"WI", "Wisconsin" },
+                {"WY", "Wyoming" },
+            };
         }
     }
 }
