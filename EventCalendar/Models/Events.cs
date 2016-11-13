@@ -36,7 +36,7 @@ namespace EventCalendar.Models
         public DateTime EndTime { get; set; }
 
         [Display(Name = "Event Type")]
-        public EventType EventType { get; set; }
+        public EventType? EventType { get; set; }
 
         [Required]
         [Display(Name = "Street Number"), StringLength(50)]
