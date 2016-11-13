@@ -10,32 +10,32 @@ using EventCalendar.Models;
 
 namespace EventCalendar.Controllers
 {
-    public class EventsController : Controller
+    public class EventController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Events
+        // GET: Event
         public ActionResult Index()
         {
-            return View(db.Events.ToList());
+            return View(db.Event.ToList());
         }
 
-        // GET: Events/Details/5
+        // GET: Event/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Events events = db.Events.Find(id);
-            if (events == null)
+            Event @event = db.Event.Find(id);
+            if (@event == null)
             {
                 return HttpNotFound();
             }
-            return View(events);
+            return View(@event);
         }
 
-        // GET: Events/Create
+        // GET: Event/Create
         public ActionResult Create()
         {
             ViewBag.CurrentDate = DateTime.Now.Date.ToShortDateString();
@@ -43,16 +43,16 @@ namespace EventCalendar.Controllers
             return View();
         }
 
-        // POST: Events/Create
+        // POST: Event/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,EventTitle,EventDate,StartTime,EndTime,EventType,StreetNumber,StreetName,City,State,ZipCode,URL,IsAllDay,SpecialIntructions")] Events events)
+        public ActionResult Create([Bind(Include = "Id,EventTitle,EventDate,StartTime,EndTime,EventType,StreetNumber,StreetName,City,State,ZipCode,URL,IsAllDay,SpecialIntructions")] Event events)
         {
             if (ModelState.IsValid)
             {
-                db.Events.Add(events);
+                db.Event.Add(events);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -60,14 +60,14 @@ namespace EventCalendar.Controllers
             return View(events);
         }
 
-        // GET: Events/Edit/5
+        // GET: Event/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Events events = db.Events.Find(id);
+            Event events = db.Event.Find(id);
             if (events == null)
             {
                 return HttpNotFound();
@@ -75,12 +75,12 @@ namespace EventCalendar.Controllers
             return View(events);
         }
 
-        // POST: Events/Edit/5
+        // POST: Event/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,EventTitle,EventDate,StartTime,EndTime,EventType,StreetNumber,StreetName,City,State,ZipCode,URL,IsAllDay,SpecialIntructions")] Events events)
+        public ActionResult Edit([Bind(Include = "Id,EventTitle,EventDate,StartTime,EndTime,EventType,StreetNumber,StreetName,City,State,ZipCode,URL,IsAllDay,SpecialIntructions")] Event events)
         {
             if (ModelState.IsValid)
             {
@@ -91,14 +91,14 @@ namespace EventCalendar.Controllers
             return View(events);
         }
 
-        // GET: Events/Delete/5
+        // GET: Event/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Events events = db.Events.Find(id);
+            Event events = db.Event.Find(id);
             if (events == null)
             {
                 return HttpNotFound();
@@ -106,13 +106,13 @@ namespace EventCalendar.Controllers
             return View(events);
         }
 
-        // POST: Events/Delete/5
+        // POST: Event/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Events events = db.Events.Find(id);
-            db.Events.Remove(events);
+            Event events = db.Event.Find(id);
+            db.Event.Remove(events);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -14,6 +14,6 @@ namespace EventCalendar.Models
         {
         }
 
-        public System.Data.Entity.DbSet<EventCalendar.Models.Events> Events { get; set; }
+        public System.Data.Entity.DbSet<EventCalendar.Models.Event> Event { get; set; }
     }
 }
