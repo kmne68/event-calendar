@@ -2,34 +2,37 @@
     ViewBag.Title = "Calendar";
 }
 
-<h2>Calendar</h2>
+<div class="container">
 
-@section scripts {
-    <script>
-        $(document).ready(function () {
-            $('#calendar').fullCalendar({
-                theme: true,
-                header: {
-                    left: 'prev, next, today',
-                    center: 'title',
-                    right: 'month, agendaWeek, agendaDay'
-                },
-                defaultView: 'month',
-                editable: false,
-                events: '/Calendar/GetEvents/',
-                backgroundColor: 'red',
-                nowIndicator: true
+    <h2>Calendar</h2>
+
+    @section scripts {
+        <script>
+            $(document).ready(function () {
+                $('#calendar').fullCalendar({
+                    theme: true,
+                    header: {
+                        left: 'prev, next, today',
+                        center: 'title',
+                        right: 'month, agendaWeek, agendaDay'
+                    },
+                    defaultView: 'month',
+                    editable: false,
+                    events: '/Calendar/GetEvents/',
+                    backgroundColor: 'red',
+                    nowIndicator: true
+                });
             });
-        });
-    </script>
+        </script>
 
-}
-
+    }
 
 
-<div class="row">
-    <div class="col-md-12">
-        <div id="calendar"></div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div id="calendar"></div>
+        </div>
     </div>
-</div>
 
+</div>

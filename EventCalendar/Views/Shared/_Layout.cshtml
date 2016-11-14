@@ -28,12 +28,13 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("Events Summary", "Index", "Event")</li>
                     <li>@Html.ActionLink("Events Calendar", "Calendar", "Event")</li>
+                    <li>@Html.ActionLink("Book Event", "Create", "Event")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
-    <div class="container body-content">
+    <div class="body-content">
         @RenderBody()
         <hr />
         <footer>

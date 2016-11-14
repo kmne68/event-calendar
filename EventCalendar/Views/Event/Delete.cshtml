@@ -4,125 +4,130 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
+<div class="container">
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Events</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.EventTitle)
-        </dt>
+    <h2>Delete</h2>
 
-        <dd>
-            @Html.DisplayFor(model => model.EventTitle)
-        </dd>
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>Events</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.EventTitle)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.EventDate)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.EventTitle)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.EventDate)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.EventDate)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.StartTime)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.EventDate)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.StartTime)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.StartTime)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.EndTime)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.StartTime)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.EndTime)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.EndTime)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.EventType)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.EndTime)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.EventType)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.EventType)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.StreetNumber)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.EventType)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.StreetNumber)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.StreetNumber)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.StreetName)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.StreetNumber)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.StreetName)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.StreetName)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.City)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.StreetName)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.City)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.City)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.State)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.City)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.State)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.State)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ZipCode)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.State)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ZipCode)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ZipCode)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.URL)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ZipCode)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.URL)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.URL)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.IsAllDay)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.URL)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.IsAllDay)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.IsAllDay)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SpecialIntructions)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.IsAllDay)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.SpecialIntructions)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.SpecialIntructions)
+            </dt>
 
-    </dl>
+            <dd>
+                @Html.DisplayFor(model => model.SpecialIntructions)
+            </dd>
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
+        </dl>
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-    }
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+
 </div>
