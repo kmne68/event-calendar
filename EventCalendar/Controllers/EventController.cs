@@ -7,17 +7,19 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using EventCalendar.Models;
+using EventCalendar.Data;
 
 namespace EventCalendar.Controllers
 {
     public class EventController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        //private ApplicationDbContext db = new ApplicationDbContext();
+        private EventCalendarContext db = new EventCalendarContext();
 
         // GET: Event
         public ActionResult Index()
         {
-            return View(db.Event.ToList());
+            return View(db.Events.ToList());
         }
 
         // GET: Event/Details/5
@@ -27,7 +29,7 @@ namespace EventCalendar.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Event @event = db.Event.Find(id);
+            Event @event = db.Events.Find(id);
             if (@event == null)
             {
                 return HttpNotFound();
@@ -52,7 +54,7 @@ namespace EventCalendar.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Event.Add(events);
+                db.Events.Add(events);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -67,7 +69,7 @@ namespace EventCalendar.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Event events = db.Event.Find(id);
+            Event events = db.Events.Find(id);
             if (events == null)
             {
                 return HttpNotFound();
@@ -98,7 +100,7 @@ namespace EventCalendar.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Event events = db.Event.Find(id);
+            Event events = db.Events.Find(id);
             if (events == null)
             {
                 return HttpNotFound();
@@ -111,8 +113,8 @@ namespace EventCalendar.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Event events = db.Event.Find(id);
-            db.Event.Remove(events);
+            Event events = db.Events.Find(id);
+            db.Events.Remove(events);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
