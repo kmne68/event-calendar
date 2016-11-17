@@ -7,6 +7,7 @@ namespace EventCalendar.Models
     {
     }
 
+    /*
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
@@ -14,6 +15,6 @@ namespace EventCalendar.Models
         {
         }
 
-        public System.Data.Entity.DbSet<EventCalendar.Models.Event> Event { get; set; }
     }
+    */
 }
