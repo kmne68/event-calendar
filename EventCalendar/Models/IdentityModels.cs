@@ -7,14 +7,4 @@ namespace EventCalendar.Models
     {
     }
 
-    /*
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
-    {
-        public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)  // add throwIfV1Schema to fix database update error
-        {
-        }
-
-    }
-    */
 }
