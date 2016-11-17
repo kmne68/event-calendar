@@ -1,5 +1,6 @@
 ﻿
 
+using EventCalendar.Data;
 using EventCalendar.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -14,7 +15,7 @@ namespace EventCalendar.Controllers
     public class AccountController : Controller
     {
         public AccountController()
-            : this(new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext())))
+            : this(new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new EventCalendarContext())))
         {
         }
 
