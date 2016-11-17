@@ -52,6 +52,7 @@ namespace EventCalendar.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,EventTitle,EventDate,StartTime,EndTime,EventType,StreetNumber,StreetName,City,State,ZipCode,URL,IsAllDay,SpecialIntructions")] Event events)
         {
+            ViewBag.States = GetStates();
             if (ModelState.IsValid)
             {
                 db.Events.Add(events);
