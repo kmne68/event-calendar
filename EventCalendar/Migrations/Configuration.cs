@@ -7,14 +7,14 @@ namespace EventCalendar.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<ApplicationDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<EventCalendar.Data.EventCalendarContext>
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(ApplicationDbContext context)
+        protected override void Seed(EventCalendar.Data.EventCalendarContext context)
         {
             var events = new List<Event>
             {
@@ -27,7 +27,7 @@ namespace EventCalendar.Migrations
                     StreetName = "Maple St.",
                     City = "Ballwin",
                     State = "MO",
-                    ZipCode = "6313" 
+                    ZipCode = "6313"
                 },
                 new Event { EventTitle = "Joe's Graduation",
                     EventDate = DateTime.Parse("2016-11-10"),
@@ -43,7 +43,7 @@ namespace EventCalendar.Migrations
             };
 
             // Assumes k.EventTitles are unique | TODO Replace this before production
-            events.ForEach(e => context.Event.AddOrUpdate(k => k.EventTitle, e));
+            events.ForEach(e => context.Events.AddOrUpdate(k => k.EventTitle, e));
             context.SaveChanges();
         }
     }
