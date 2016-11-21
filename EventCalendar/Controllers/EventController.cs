@@ -59,7 +59,7 @@ namespace EventCalendar.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            DropDownRebind();
             return View(events);
         }
 
@@ -132,6 +132,25 @@ namespace EventCalendar.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        // Added 2016-11-20
+        private void DropDownRebind()
+        {
+            List<SelectListItem> SelectYesNo = new List<SelectListItem>();
+
+            SelectYesNo.Add(new SelectListItem
+            {
+                Text = "Yes",
+                Value = true.ToString()
+            });
+            SelectYesNo.Add(new SelectListItem
+            {
+                Text = "No",
+                Value = false.ToString()
+            });
+
+            ViewData["selectYesNo"] = SelectYesNo;
         }
 
         private Dictionary<string, string> GetStates()
