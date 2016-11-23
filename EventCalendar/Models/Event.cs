@@ -10,6 +10,11 @@ namespace EventCalendar.Models
     {
         Birthday, Wedding, Graduation, Anniversary, Others
     }
+
+    public enum IsAllDay
+    {
+        Yes, No
+    }
     public class Event
     {
         public int Id { get; set; }
@@ -58,7 +63,7 @@ namespace EventCalendar.Models
         public string URL { get; set; }
 
         [Display(Name = "All-Day Event?")]
-        public bool? IsAllDay { get; set; }
+        public IsAllDay? IsAllDay { get; set; }
 
         [Display(Name = "Special Instructions")]
         [DataType(DataType.MultilineText)]
