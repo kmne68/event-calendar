@@ -10208,7 +10208,7 @@ Calendar.defaults = {
 	weekNumberTitle: 'W',
 	weekNumberCalculation: 'local',
 	
-	//editable: false,
+	editable: true,
 
 	//nowIndicator: false,
 
@@ -12106,9 +12106,9 @@ var BasicView = FC.BasicView = View.extend({
 	dayGridClass: DayGrid, // class the dayGrid will be instantiated from (overridable by subclasses)
 	dayGrid: null, // the main subcomponent that does most of the heavy lifting
 
-	dayNumbersVisible: false, // display day numbers on each day cell?
-	colWeekNumbersVisible: false, // display week numbers along the side?
-	cellWeekNumbersVisible: false, // display week numbers in day cell?
+	dayNumbersVisible: true, // display day numbers on each day cell?
+	colWeekNumbersVisible: true, // display week numbers along the side?
+	cellWeekNumbersVisible: true, // display week numbers in day cell?
 
 	weekNumberWidth: null, // width of all the week-number cells running down the side
 

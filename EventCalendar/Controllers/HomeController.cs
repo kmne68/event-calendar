@@ -45,7 +45,7 @@ namespace EventCalendar.Controllers
         {
             List<Event> eventList = new List<Event>();
 
-            Event newEvent = new Event {
+      /*      Event newEvent = new Event {
                 Id = 1,
                 EventTitle = "Event 771",
                 //StartTime = DateTime.Now.AddDays(1).ToString("s"),
@@ -56,7 +56,7 @@ namespace EventCalendar.Controllers
                 SpecialIntructions = "Reserve me a date"
             };
 
-
+    
             eventList.Add(newEvent);
 
             newEvent = new Event
@@ -70,7 +70,7 @@ namespace EventCalendar.Controllers
             };
 
             eventList.Add(newEvent);
-
+            */
             return eventList;
         }
 
@@ -78,6 +78,44 @@ namespace EventCalendar.Controllers
         {
             var origin = new DateTime(1970, 1, 1, 0, 0, 0, 0);
             return origin.AddSeconds(timestamp);
+        }
+
+
+        // Added 12/1
+
+        public JsonResult GetDiarySummary(double start, double end)
+        {
+            var ApptListForDate = Schedule.LoadAppointmentSummaryInDateRange(start, end);
+            var eventList = from e in ApptListForDate
+                            select new
+                            {
+                                id = e.Id,
+                                title = e.EventTitle,
+                                date = e.EventDate,
+                                start = e.StartTime,
+                                end = e.EndTime,
+                                color = e.EventType,
+                                allDay = false
+                            };
+            var rows = eventList.ToArray();
+            return Json(rows, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GetDiaryEvents(double start, double end)
+        {
+            var ApptListForDate = Schedule.LoadAllAppointmentsInDateRange(start, end);
+            var eventList = from e in ApptListForDate
+                            select new
+                            {
+                                id = e.Id,
+                                title = e.EventTitle,
+                                date = e.EventDate,
+                                start = e.StartTime,
+                                end = e.EndTime,
+                                color = e.EventType
+                            };
+            var rows = eventList.ToArray();
+            return Json(rows, JsonRequestBehavior.AllowGet);
         }
     }
 }

@@ -14,7 +14,7 @@ namespace EventCalendar.Migrations
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(EventCalendar.Data.EventCalendarContext context)
+   /*     protected override void Seed(EventCalendar.Data.EventCalendarContext context)
         {
             var events = new List<Event>
             {
@@ -40,11 +40,11 @@ namespace EventCalendar.Migrations
                     State = "MO",
                     ZipCode = "6345"
                 }
-            };
+            };  
 
             // Assumes k.EventTitles are unique | TODO Replace this before production
             events.ForEach(e => context.Events.AddOrUpdate(k => k.EventTitle, e));
             context.SaveChanges();
-        }
+        }*/
     }
 }
