@@ -1,5 +1,5 @@
-﻿//<%@ WebHandler Language = "C#" Class="JsonResponse" %>
-/*
+﻿<%@ WebHandler Language = "C#" Class="JsonResponse" %>
+
 using System;
 using System.Web;
 using System.Collections;
@@ -111,4 +111,4 @@ public class JsonResponse : IHttpHandler, IRequiresSessionState
     //              "description: '" + HttpContext.Current.Server.HtmlEncode(cevent.description) + "'" +
     //              "},";
     //}
-}*/
+}

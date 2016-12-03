@@ -8,7 +8,7 @@
 
     @section scripts {
         <script>
-            /*     $(document).ready(function () {
+            /*         $(document).ready(function () {
                            $('#calendar').fullCalendar({
                     theme: true,
                     header: {
@@ -22,9 +22,9 @@
                     backgroundColor: 'red',
                     nowIndicator: true
                 });
-            });                                         */
+            });                                         
 
-       /*         $('#calendar').fullCalendar({
+                $('#calendar').fullCalendar({
                     events: "/Calenendar/GetEvents/",
                     events: [
                         {
@@ -39,9 +39,9 @@
                         content: event.description
                         // });
                     }
-                });
-            });
-            */
+                }); 
+      /*      });
+            
 
 
             /***********************************************************************/
@@ -51,7 +51,7 @@
                     type: "POST",
                     contentType: "application/json",
                  data: "{}",
-                    url: "/Calendar/GetEvents/",
+                    url: "/Events/GetEvents/",
                     dataType: "json",
                     success: function (data) {
                         $('div[id*=fullcal]').fullCalendar({
@@ -65,17 +65,13 @@
                             {
                                 var event = new Object();
                                 event.id = item.EventID;
+                                event.title = item.EventName;
                                 event.start = new Date(item.StartDate);
                                 event.end = new Date(item.EndDate);
-                                event.title = item.EventName;
-                                event.url = item.Url;
-                                event.ImageType = item.ImageType;
                                 return event;
                             }), 
                             eventRender: function (event, eventElement) 
                             {
-                                if (event.ImageType) 
-                                {
                                     if (eventElement.find('span.fc-event-time').length) 
                                     {
                                         eventElement.find('span.fc-event-time').before($(GetImage(event.ImageType)));
@@ -83,7 +79,7 @@
                                     else {
                                         eventElement.find('span.fc-event-title').before($(GetImage(event.ImageType)));
                                     }
-                                }
+                                
                             },
                             loading: function (bool) 
                             {

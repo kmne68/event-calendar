@@ -37,6 +37,35 @@ namespace EventCalendar.Controllers
             return View(@event);
         }
 
+
+        /******************************************************/
+        [HttpPost]
+        public JsonResult GetEvents(DateTime start, DateTime end)
+        {
+            List<CalendarEvent> events = EventDAO.getEvents(start, end);
+
+            var eventList = new List<object>();
+
+            foreach(var e in events)
+            {
+                eventList.Add(
+
+                    new
+                    {
+                        id = e.id,
+                        title = e.title,
+                        start = e.start,
+                        end = e.end,
+                        allDay = e.allDay
+                    });
+
+            }
+            return Json(eventList.ToArray(), JsonRequestBehavior.AllowGet);
+        }
+
+        /******************************************************/
+
+
         // GET: Event/Create
         public ActionResult Create()
         {
@@ -152,6 +181,7 @@ namespace EventCalendar.Controllers
 
             ViewData["selectYesNo"] = SelectYesNo;
         }
+
 
         private Dictionary<string, string> GetStates()
         {

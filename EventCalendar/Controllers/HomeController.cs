@@ -82,7 +82,7 @@ namespace EventCalendar.Controllers
 
 
         // Added 12/1
-
+/*
         public JsonResult GetDiarySummary(double start, double end)
         {
             var ApptListForDate = Schedule.LoadAppointmentSummaryInDateRange(start, end);
@@ -116,6 +116,6 @@ namespace EventCalendar.Controllers
                             };
             var rows = eventList.ToArray();
             return Json(rows, JsonRequestBehavior.AllowGet);
-        }
+        } */
     }
 }
