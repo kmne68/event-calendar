@@ -150,6 +150,13 @@ namespace EventCalendar.Controllers
             base.Dispose(disposing);
         }
 
+
+        public void UpdateEvent(int id, DateTime NewEventStart, DateTime NewEventEnd, bool allDay)
+        {
+            EventDAO.updateEventTime(id, NewEventStart, NewEventEnd, allDay);
+        }
+
+
         // Added 2016-11-20
         private void DropDownRebind()
         {

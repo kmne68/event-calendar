@@ -17,12 +17,53 @@
                         right: 'month, agendaWeek, agendaDay'
                     },
                     defaultView: 'month',
-                    editable: false,
+                    editable: true,
+
+                    eventDrop: function(event,dayDelta,minuteDelta,allDay,revertFunc) {
+
+                        alert(
+                            event.title + " was moved " +
+                            dayDelta + " days and " +
+                            minuteDelta + " minutes."
+                        );
+
+                        if (allDay) {
+                            alert("Event is now all-day");
+                        }else{
+                            alert("Event has a time-of-day");
+                        } 
+
+                        if (!confirm("Are you sure about this change?")) {
+                            revertFunc();
+                        }
+                        else { 
+                            UpdateEventTime(event.id, event.start, event.end, allDay);
+                        }
+
+                    },
+
                     backgroundColor: 'red',
                     nowIndicator: true,
                     events: "/Event/GetEvents/"
                 });
             });
+
+            function UpdateEventTime(EventID, EventStart, EventEnd, allDay) {
+            //    document.write("Hello world");
+                var dataRow = {
+                    'id': EventID,
+                    'NewEventStart': EventStart,
+                    'NewEventEnd': EventEnd,
+                    'NewAllDay' : allDay
+                }
+                $.ajax({
+                    type: 'POST',
+                    url: "/Event/UpdateEventTime",
+                    dataType: "json",
+                    contentType: "application/json",
+                    data: JSON.stringify(dataRow)
+                });
+            }
         </script>
     }
 
