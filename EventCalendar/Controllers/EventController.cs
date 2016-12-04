@@ -9,17 +9,33 @@ using System.Web.Mvc;
 using EventCalendar.Models;
 using EventCalendar.Data;
 
+
 namespace EventCalendar.Controllers
 {
     public class EventController : Controller
     {
-        //private ApplicationDbContext db = new ApplicationDbContext();
         private EventCalendarContext db = new EventCalendarContext();
 
         // GET: Event
         public ActionResult Index()
         {
             return View(db.Events.ToList());
+        }
+
+        public JsonResult GetEvents()
+        {
+            var events = db.Events.ToList();
+            var eventList = from e in events
+                            select new
+                            {
+                                id = e.Id,
+                                title = e.EventTitle,
+                                start = e.StartDateTime.ToString("s"),
+                                end = e.EndDateTime.ToString("s"),
+                                allDay = false
+                            };
+            var rows = eventList.ToArray();
+            return Json(rows, JsonRequestBehavior.AllowGet);
         }
 
         // GET: Event/Details/5
@@ -151,6 +167,12 @@ namespace EventCalendar.Controllers
             });
 
             ViewData["selectYesNo"] = SelectYesNo;
+        }
+
+        private static DateTime ConvertFromUnixTimeStamp(double timestamp)
+        {
+            var origin = new DateTime(1970, 1, 1, 0, 0, 0, 0);
+            return origin.AddSeconds(timestamp);
         }
 
         private Dictionary<string, string> GetStates()
