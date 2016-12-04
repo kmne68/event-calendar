@@ -39,6 +39,8 @@ namespace EventCalendar.Controllers
 
 
         /******************************************************/
+        // http://gunnarpeipman.com/2010/02/using-fullcalendar-jquery-component-with-asp-net-mvc/
+
         [HttpPost]
         public JsonResult GetEvents(DateTime start, DateTime end)
         {

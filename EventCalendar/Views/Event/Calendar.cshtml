@@ -5,11 +5,10 @@
 <div class="container">
 
     <h2>Calendar TEST</h2>
-
     @section scripts {
         <script>
-            /*         $(document).ready(function () {
-                           $('#calendar').fullCalendar({
+            /*     $(document).ready(function () {
+                                       $('#calendar').fullCalendar({
                     theme: true,
                     header: {
                         left: 'prev, next, today',
@@ -22,10 +21,10 @@
                     backgroundColor: 'red',
                     nowIndicator: true
                 });
-            });                                         
+            });                                        
 
                 $('#calendar').fullCalendar({
-                    events: "/Calenendar/GetEvents/",
+                    events: "/Calendar/GetEvents/",
                     events: [
                         {
                             title: 'My Event',
@@ -40,18 +39,20 @@
                         // });
                     }
                 }); 
-      /*      });
+            });
             
 
 
             /***********************************************************************/
-
+            
             $(document).ready(function () {
+     //           document.write("Hello World!");
                 $.ajax({
+
                     type: "POST",
                     contentType: "application/json",
-                 data: "{}",
-                    url: "/Events/GetEvents/",
+                 data: "{2016-12-01, 2016-12-31}",
+                    url: "/Event/Calendar/",
                     dataType: "json",
                     success: function (data) {
                         $('div[id*=fullcal]').fullCalendar({
