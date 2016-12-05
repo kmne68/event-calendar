@@ -150,10 +150,13 @@ namespace EventCalendar.Controllers
             base.Dispose(disposing);
         }
 
-
-        public void UpdateEvent(int id, DateTime NewEventStart, DateTime NewEventEnd, bool allDay)
+        // to update a moved event
+        public void UpdateEventTime(int id, DateTime NewEventStart, DateTime NewEventEnd, TimeSpan delta)
         {
-            EventDAO.updateEventTime(id, NewEventStart, NewEventEnd, allDay);
+
+            Event events = db.Events.Find(id);
+            db.Events.Find(id).StartDateTime.Add(delta);
+           // EventDAO.updateEventTime(id, NewEventStart, NewEventEnd, allDay);
         }
 
 

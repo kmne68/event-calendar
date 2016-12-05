@@ -19,6 +19,7 @@
                     defaultView: 'month',
                     editable: true,
 
+                    // handle an event that has been moved
                     eventDrop: function(event,dayDelta,minuteDelta,allDay,revertFunc) {
 
                         alert(
@@ -27,19 +28,30 @@
                             minuteDelta + " minutes."
                         );
 
-                        if (allDay) {
+                        allDay = false;
+
+
+
+                    /*    if (allDay) {
                             alert("Event is now all-day");
                         }else{
                             alert("Event has a time-of-day");
-                        } 
+                        } */
 
                         if (!confirm("Are you sure about this change?")) {
+                            // test that change confirmation is working ok
+                            document.write("before revert");
                             revertFunc();
                         }
                         else { 
-                            UpdateEventTime(event.id, event.start, event.end, allDay);
+                            // test that UpdateEventTime else block is entered
+                       //     document.write("from UpdateEventTime call block   ");
+                       //     document.write("<html><br><br></html>");
+                       //     document.write("   parameter values--event start: " + event.start + ", dayDelta" + dayDelta + ", minuteDelta: " + minuteDelta + " allDay: " + allDay + "     ");
+                       //     document.write("<html><br><br></html>");
+                       //     document.write("   event id: " + event.id + ", Event start " + event.start + "\n\n");
+                            UpdateEventTime(event.id, event.start, event.end, dayDelta);
                         }
-
                     },
 
                     backgroundColor: 'red',
@@ -48,22 +60,31 @@
                 });
             });
 
-            function UpdateEventTime(EventID, EventStart, EventEnd, allDay) {
-            //    document.write("Hello world");
+            // change event details in the database
+            function UpdateEventTime(EventID, EventStart, EventEnd, dayDelta) {
                 var dataRow = {
-                    'id': EventID,
-                    'NewEventStart': EventStart,
-                    'NewEventEnd': EventEnd,
-                    'NewAllDay' : allDay
+                    'Id': EventID,
+                    'StartTime': EventStart,
+                    'EndTime': EventEnd,
+                    'DayDelta': dayDelta
                 }
                 $.ajax({
                     type: 'POST',
                     url: "/Event/UpdateEventTime",
                     dataType: "json",
                     contentType: "application/json",
-                    data: JSON.stringify(dataRow)
+                    data: JSON.stringify(dataRow),
+                    
+                    success: function (response) {
+                        event.id = response.eventid;
+                        $('#calendar').fullCalendar('updateEvent', event);
+                    }, 
                 });
-            }
+                // test to be sure UpdateEventTime is being called correctly
+             //   document.write("   from JS function UpdateEventTime    ");
+             //   document.write("<html><br><br></html>");
+             //   document.write("   From UpdateEventTime JS function--EventID: " + EventID + ", NewEventStart: " + EventStart + "   " );
+            } 
         </script>
     }
 
