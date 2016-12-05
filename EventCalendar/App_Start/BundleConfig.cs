@@ -24,7 +24,8 @@ namespace EventCalendar
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/Content/bootswatch/spacelab/bootstrap.css",
+                      //"~/Content/bootstrap.css",
                       "~/Content/site.css"));
 
             // Calendar css file
