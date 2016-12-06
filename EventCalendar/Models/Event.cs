@@ -10,6 +10,11 @@ namespace EventCalendar.Models
     {
         Birthday, Wedding, Graduation, Anniversary, Others
     }
+
+    public enum IsAllDay
+    {
+        Yes, No
+    }
     public class Event
     {
         public int Id { get; set; }
@@ -35,6 +40,24 @@ namespace EventCalendar.Models
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:hh:mm:ss tt}")]
         public DateTime EndTime { get; set; }
 
+        public DateTime StartDateTime
+        {
+            get
+            {
+                var time = new TimeSpan(StartTime.Hour, StartTime.Minute, StartTime.Second);
+                return EventDate.Add(time);
+            }
+        }
+
+        public DateTime EndDateTime
+        {
+            get
+            {
+                var time = new TimeSpan(EndTime.Hour, EndTime.Minute, EndTime.Second);
+                return EventDate.Add(time);
+            }
+        }
+
         [Display(Name = "Event Type")]
         public EventType? EventType { get; set; }
 
@@ -58,7 +81,7 @@ namespace EventCalendar.Models
         public string URL { get; set; }
 
         [Display(Name = "All-Day Event?")]
-        public bool? IsAllDay { get; set; }
+        public IsAllDay? IsAllDay { get; set; }
 
         [Display(Name = "Special Instructions")]
         [DataType(DataType.MultilineText)]

@@ -9,17 +9,33 @@ using System.Web.Mvc;
 using EventCalendar.Models;
 using EventCalendar.Data;
 
+
 namespace EventCalendar.Controllers
 {
     public class EventController : Controller
     {
-        //private ApplicationDbContext db = new ApplicationDbContext();
         private EventCalendarContext db = new EventCalendarContext();
 
         // GET: Event
         public ActionResult Index()
         {
             return View(db.Events.ToList());
+        }
+
+        public JsonResult GetEvents()
+        {
+            var events = db.Events.ToList();
+            var eventList = from e in events
+                            select new
+                            {
+                                id = e.Id,
+                                title = e.EventTitle,
+                                start = e.StartDateTime.ToString("s"),
+                                end = e.EndDateTime.ToString("s"),
+                                allDay = false
+                            };
+            var rows = eventList.ToArray();
+            return Json(rows, JsonRequestBehavior.AllowGet);
         }
 
         // GET: Event/Details/5
@@ -59,7 +75,7 @@ namespace EventCalendar.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            DropDownRebind();
             return View(events);
         }
 
@@ -132,6 +148,31 @@ namespace EventCalendar.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        // Added 2016-11-20
+        private void DropDownRebind()
+        {
+            List<SelectListItem> SelectYesNo = new List<SelectListItem>();
+
+            SelectYesNo.Add(new SelectListItem
+            {
+                Text = "Yes",
+                Value = true.ToString()
+            });
+            SelectYesNo.Add(new SelectListItem
+            {
+                Text = "No",
+                Value = false.ToString()
+            });
+
+            ViewData["selectYesNo"] = SelectYesNo;
+        }
+
+        private static DateTime ConvertFromUnixTimeStamp(double timestamp)
+        {
+            var origin = new DateTime(1970, 1, 1, 0, 0, 0, 0);
+            return origin.AddSeconds(timestamp);
         }
 
         private Dictionary<string, string> GetStates()

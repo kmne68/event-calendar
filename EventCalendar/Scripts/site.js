@@ -51,8 +51,7 @@
         minTime: '1:00am',
         maxTime: '11:00pm',
         defaultTime: '1:00pm',
-        startTime: '6:00am',
-   
+        startTime: '6:00am'
     });
 
 });
